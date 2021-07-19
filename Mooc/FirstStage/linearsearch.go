@@ -1,8 +1,7 @@
 package main
 
-import "fmt"
-
-func LinearSearch(tars [8]int, target int) int {
+// LinearSearchV1 V1
+func LinearSearchV1(tars [8]int, target int) int {
 	for i, v := range tars {
 		if v == target {
 			return i
@@ -11,7 +10,14 @@ func LinearSearch(tars [8]int, target int) int {
 	return -1
 }
 
-func main() {
-	var tars = [...]int{24, 18, 12, 9, 16, 66, 32, 4}
-	fmt.Println(LinearSearch(tars, 16))
+// LinearSearchV2 V2
+// Use the interface{}
+// Use Age field to judge if or not
+func LinearSearchV2(target interface{}, tars interface{}) int {
+	for i, v := range tars.([]Student) {
+		if v.Age == target.(Student).Age {
+			return i
+		}
+	}
+	return -1
 }
